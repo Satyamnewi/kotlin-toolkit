@@ -12,7 +12,14 @@ plugins {
     id("org.jetbrains.kotlin.android") apply false
     id("org.jetbrains.dokka") apply true
 }
-
+buildscript {
+    ext.readium_version = '2.2.0'
+}
+allprojects {
+    repositories {
+        maven { url 'https://jitpack.io' }
+    }
+}
 subprojects {
     tasks.register<Jar>("javadocsJar") {
         archiveClassifier.set("javadoc")
